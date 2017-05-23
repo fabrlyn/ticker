@@ -1,0 +1,5 @@
+bin
+*.a
+*.o
+tests_run
+.vscode
