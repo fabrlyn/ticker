@@ -36,7 +36,8 @@ int main()
     return 1; // Failed to initialize ticker manager
   }
 
-  // Use execute to make the manager loop through the tickers and check their interval against the current time.
+  // Use execute to make the manager loop through the tickers 
+  // and check their interval against the current time.
   ticker_manager_exec(&ticker_manager);
 
   return 0;
