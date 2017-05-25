@@ -1,6 +1,6 @@
 # ticker
 
-Micro lib for invoking functions for every N number of T, where for T is time in milliseconds.
+Micro lib for invoking functions for every N number of T, for examplw where T is time in milliseconds.
 Written with the intent of being used in the run loop of Arduinos.
 
 Example
