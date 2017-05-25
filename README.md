@@ -1,6 +1,6 @@
 # ticker
 
-Micro lib for invoking functions for every N number of T, where for example N is the interval and T is time;
+Micro lib for invoking functions for every N number of T, where for T is time in milliseconds;
 Written with the intent of being used in the run loop of Arduinos.
 
 Example
@@ -23,11 +23,9 @@ void on_tick()
 int main()
 {
   struct Ticker ticker;
-
   if (ticker_init(&ticker, on_tick, 1000) != 0)
   {
-    // Failed to initialize ticker
-    return 1;
+    return 1; // Failed to initialize ticker
   }
 
   struct Ticker *tickers[] = { &ticker };
@@ -35,8 +33,7 @@ int main()
 
   if (ticker_manager_init(&ticker_manager, now, tickers, 1) != 0)
   {
-    // Failed to initialize ticker manager
-    return 1;
+    return 1; // Failed to initialize ticker manager
   }
 
   // Use execute to make the manager loop through the tickers and check their interval against the current time.
