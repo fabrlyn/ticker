@@ -14,7 +14,7 @@ uint32_t now()
   return millis();
 }
 
-// A TickerHandler, called for every interval
+// A TickerHandler, called every interval
 void on_tick()
 {
   // Do something
