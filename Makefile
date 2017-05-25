@@ -1,6 +1,6 @@
 EMPTY = 
 
-PROJECT_NAME = ticker 
+PROJECT_NAME = ticker
 
 SRC_DIR = src
 BIN_DIR = bin

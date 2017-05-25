@@ -1,9 +1,10 @@
+#include <stdlib.h>
 #include <stdint.h>
 #include "ticker.h"
 
 // TickerManager ------------------------------------------------------------------------
 
-uint8_t ticker_manager_init(struct TickerManager *ticker_manager, NowHandler now_handler, struct Ticker *tickers, uint8_t tickers_len)
+uint8_t ticker_manager_init(struct TickerManager *ticker_manager, NowHandler now_handler, struct Ticker **tickers, uint8_t tickers_len)
 {
     if (ticker_manager == NULL || now_handler == NULL || tickers == NULL)
     {
@@ -21,13 +22,13 @@ void ticker_manager_exec(struct TickerManager *ticker_manager)
 {
     for (uint8_t i = 0; i < ticker_manager->_tickers_len; i++)
     {
-        struct Ticker ticker = ticker_manager->_tickers[i];
+        struct Ticker *ticker = ticker_manager->_tickers[i];
         uint32_t now = ticker_manager->_now();
 
-        if ((ticker._last_tick - now) > ticker._interval)
+        if ((ticker->_last_tick - now) >= ticker->_interval)
         {
-            ticker._last_tick = now;
-            ticker._on_tick();
+            ticker->_last_tick = now;
+            ticker->_on_tick();
         }
     }
 }
