@@ -25,7 +25,7 @@ void ticker_manager_exec(struct TickerManager *ticker_manager)
         struct Ticker *ticker = ticker_manager->_tickers[i];
         uint32_t now = ticker_manager->_now();
 
-        if ((ticker->_last_tick - now) >= ticker->_interval)
+        if ((now - ticker->_last_tick) >= ticker->_interval)
         {
             ticker->_last_tick = now;
             ticker->_on_tick();
